@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<xs:schema targetNamespace="http://request.test.org" xmlns="http://request.test.org"
+<xs:schema targetNamespace="http://request.jaxb.exampledriven.org" xmlns="http://request.jaxb.exampledriven.org"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
-	xmlns:ct="http://contact.test.org">
+	xmlns:ct="http://contact.jaxb.exampledriven.org">
 
-	<xs:import schemaLocation="contact.xsd" namespace="http://contact.test.org"/>
+	<xs:import schemaLocation="contact.xsd" namespace="http://contact.jaxb.exampledriven.org"/>
 
 	<xs:element name="request">
 		<xs:complexType>

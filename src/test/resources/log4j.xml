@@ -9,7 +9,7 @@
 		</layout>
 	</appender>
 
-	<category name="org.test">
+	<category name="org.exampledriven">
 		<priority value="debug" />
 	</category>
 

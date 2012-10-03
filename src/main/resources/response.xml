@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<response xmlns="http://response.test.org" xmlns:ct="http://contact.test.org" >
+<response xmlns="http://response.jaxb.exampledriven.org" xmlns:ct="http://contact.jaxb.exampledriven.org" >
     <ct:contacts>
         <ct:contact>
             <ct:email>a@test.com</ct:email>
