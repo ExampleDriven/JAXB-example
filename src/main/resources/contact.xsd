@@ -3,8 +3,17 @@
 <xs:schema targetNamespace="http://contact.generated.jaxb.exampledriven.org" xmlns="http://contact.generated.jaxb.exampledriven.org"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	
-	<xs:element type="xs:string" name="email"/>
+  <xs:element name="email">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute type="xs:string" name="type" use="optional"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
 
+  
 	<xs:element type="xs:string" name="firstname"/>
 
 	<xs:element type="xs:string" name="lastname"/>

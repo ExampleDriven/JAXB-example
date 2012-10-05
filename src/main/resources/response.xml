@@ -2,17 +2,18 @@
 <response xmlns="http://response.generated.jaxb.exampledriven.org" xmlns:ct="http://contact.generated.jaxb.exampledriven.org" >
     <ct:contacts>
         <ct:contact>
-            <ct:email>a@test.com</ct:email>
+            <ct:email type="work">a@test.com</ct:email>
+            <ct:email type="home">a@work.com</ct:email>
             <ct:firstname>Peter</ct:firstname>
             <ct:lastname>Szanto</ct:lastname>
         </ct:contact>
         <ct:contact>
-            <ct:email>b@test.com</ct:email>
+            <ct:email type="work">b@test.com</ct:email>
             <ct:firstname>Peter2</ct:firstname>
             <ct:lastname>Szanto2</ct:lastname>
         </ct:contact>
         <ct:contact>
-            <ct:email>c@test.com</ct:email>
+            <ct:email type="home">c@test.com</ct:email>
             <ct:firstname>Peter3</ct:firstname>
             <ct:lastname>Szanto3</ct:lastname>
         </ct:contact>

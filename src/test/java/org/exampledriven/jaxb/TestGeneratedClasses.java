@@ -12,6 +12,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.exampledriven.jaxb.generated.contact.Contact;
+import org.exampledriven.jaxb.generated.contact.Email;
 import org.exampledriven.jaxb.generated.request.Request;
 import org.exampledriven.jaxb.generated.response.Response;
 
@@ -41,12 +42,15 @@ public class TestGeneratedClasses {
 			logger.debug("=== contact ===");
 			logger.debug(contact.getFirstname());
 			logger.debug(contact.getLastname());
-			logger.debug(contact.getEmail());
+			logger.debug(contact.getEmail().getType() + " : " + contact.getEmail().getValue());
 		}
 		
 		Contact c = new Contact();
 		c.setFirstname("This comes from the Java code");
-		c.setEmail("exampledriven@example.org");
+		Email email = new Email();
+		email.setType("home");
+		email.setValue("exampledriven@example.org");
+		c.setEmail(email);
 
 		response.getContacts().getContact().add(c);
 		
@@ -67,9 +71,9 @@ public class TestGeneratedClasses {
 			logger.debug("=== contact ===");
 			logger.debug(contact.getFirstname());
 			logger.debug(contact.getLastname());
-			logger.debug(contact.getEmail());
+			logger.debug(contact.getEmail().getType() + " : " + contact.getEmail().getValue());
 			
-			contact.setEmail(contact.getEmail() + " UPDATED ");
+			contact.getEmail().setValue(contact.getEmail().getValue() + " UPDATED ");
 		}
 		
 		jaxbUtil.writeXML(request, System.out);
