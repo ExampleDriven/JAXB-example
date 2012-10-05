@@ -8,12 +8,12 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class JAXBTestBase {
+public class JAXBUtil {
 
 	protected Unmarshaller unmarshaller = null;
 	protected Marshaller marshaller = null;
 
-	public JAXBTestBase(JAXBContext jaxbContext) throws JAXBException {
+	public JAXBUtil(JAXBContext jaxbContext) throws JAXBException {
 		unmarshaller = jaxbContext.createUnmarshaller();
 		marshaller = jaxbContext.createMarshaller();
 	}

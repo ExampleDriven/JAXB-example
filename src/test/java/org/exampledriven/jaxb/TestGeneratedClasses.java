@@ -6,30 +6,34 @@ package org.exampledriven.jaxb;
 import java.io.InputStream;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.exampledriven.jaxb.contact.Contact;
-import org.exampledriven.jaxb.request.Request;
-import org.exampledriven.jaxb.response.Response;
+import org.exampledriven.jaxb.generated.contact.Contact;
+import org.exampledriven.jaxb.generated.request.Request;
+import org.exampledriven.jaxb.generated.response.Response;
 
 /**
  * @author Peter Szanto
  */
-public class TestGeneratedClasses  extends JAXBTestBase {
+public class TestGeneratedClasses {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	public TestGeneratedClasses() throws JAXBException {
-			super(JAXBContext.newInstance("org.exampledriven.jaxb.response:org.exampledriven.jaxb.contact:org.exampledriven.jaxb.request"));
+	private JAXBUtil jaxbUtil;
+	@Before
+	public void init() throws JAXBException {
+		jaxbUtil = new JAXBUtil(JAXBContext.newInstance(Request.class, Response.class));
 	}
-
+	
 	@Test
 	public void testResponse() throws JAXBException {
 
 		InputStream fis = this.getClass().getClassLoader().getResourceAsStream("response.xml");
 
-		Object o = readXML(fis);
+		Object o = jaxbUtil.readXML(fis);
 
 		Response response = (Response) o;
 
@@ -46,7 +50,7 @@ public class TestGeneratedClasses  extends JAXBTestBase {
 
 		response.getContacts().getContact().add(c);
 		
-		writeXML(response, System.out);
+		jaxbUtil.writeXML(response, System.out);
 
 	}	
 
@@ -55,7 +59,7 @@ public class TestGeneratedClasses  extends JAXBTestBase {
 
 		InputStream fis = this.getClass().getClassLoader().getResourceAsStream("request.xml");
 
-		Object o = readXML(fis);
+		Object o = jaxbUtil.readXML(fis);
 
 		Request request= (Request) o;
 
@@ -68,7 +72,7 @@ public class TestGeneratedClasses  extends JAXBTestBase {
 			contact.setEmail(contact.getEmail() + " UPDATED ");
 		}
 		
-		writeXML(request, System.out);
+		jaxbUtil.writeXML(request, System.out);
 
 	}	
 
